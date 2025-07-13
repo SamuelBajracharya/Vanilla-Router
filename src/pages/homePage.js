@@ -1,3 +1,6 @@
+import { blogsData } from "../data/blogList.js";
+import BlogCard from "../components/blogCard.js";
+
 const HomePage = () => {
   return `
     <div class="container">
@@ -9,20 +12,10 @@ const HomePage = () => {
 
         <section style="margin-top: 40px;">
             <h2>Popular Blogs</h2>
-
-            <article class="post">
-            <h3>How to Build a Blog from Scratch</h3>
-            <div class="meta">Posted on July 10, 2025 by Jane Doe</div>
-            <p>Building a blog can be simple and fun! Learn the basics of HTML, CSS, and how to structure your content for readability.</p>
-            <a href="blogs.html#post2" class="read-more">Read More →</a>
-            </article>
-
-            <article class="post">
-            <h3>Design Tips for Your Blog</h3>
-            <div class="meta">Posted on July 5, 2025 by John Smith</div>
-            <p>Good design enhances user experience. Discover key tips on color schemes, typography, and layout to keep your readers engaged.</p>
-            <a href="blogs.html#post3" class="read-more">Read More →</a>
-            </article>
+            ${blogsData
+              .filter((blog) => blog.todaysPopular)
+              .map((blog) => BlogCard(blog))
+              .join("")}
         </section>
         </main>
     </div>

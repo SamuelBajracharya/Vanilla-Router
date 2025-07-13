@@ -49,14 +49,6 @@ const BlogPage = () => {
       </main>
 
       <aside class="sidebar">
-        <section class="about">
-          <h3>About the Author</h3>
-          <p>
-            Jane Doe is a web developer and blogger who loves sharing tutorials
-            and tips about building websites and blogging.
-          </p>
-        </section>
-
         <section class="recent-posts">
           <h3>Recent Posts</h3>
           <ul>
@@ -71,3 +63,5 @@ const BlogPage = () => {
     </div>
     `
 }
+
+export default BlogPage;
