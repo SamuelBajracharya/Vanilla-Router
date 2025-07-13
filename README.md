@@ -1,49 +1,101 @@
-Vanilla Router
-A lightweight single-page application (SPA) router built with vanilla JavaScript. This project demonstrates how to create a simple client-side routing system without relying on any frameworks or libraries.
+# Vanilla‑Router
 
-Features
-Client-side routing: Navigate between pages without full page reloads.
+A lightweight, dependency‑free client‑side router for modern web apps written in TypeScript and JavaScript.
 
-Dynamic routes support: Handle routes with parameters like /blog/:id.
+## 🚀 Features
 
-History API integration: Uses history.pushState and popstate events to keep URL in sync.
+- **Zero dependencies**: Pure JavaScript, no frameworks required  
+- **Dynamic route parameters**: Route definitions like `/todo/:id`  
+- **Route guards** with `onBeforeRoute` support  
+- **Error handling** via `onRouteFail`  
+- **History API support** with proper URL and browser back/forward  
+- **Default NotFound route** using wildcard (`*`) patterns  
 
-SPA fallback compatibility: Works seamlessly with static servers that support SPA fallback like serve -s.
+---
 
-Minimal dependencies: Pure vanilla JavaScript, no build step required.
+## 📦 Installation
 
-Modular structure: Clean separation of route definitions and render logic.
-Getting Started
-Prerequisites
-Node.js installed (optional, for serving the project)
+You can directly clone the repo or include the file in your project.
 
-A static server that supports SPA fallback routing (recommended: serve)
-
-Running Locally
-Clone the repository:
-
-bash
-Copy
-Edit
+```bash
 git clone https://github.com/SamuelBajracharya/Vanilla-Router.git
-cd Vanilla-Router/src
-Serve the project with SPA fallback enabled:
+```
 
-bash
-Copy
-Edit
-npx serve -s .
-Open your browser and navigate to:
+---
 
-arduino
-Copy
-Edit
-http://localhost:5000
-Try navigating to routes like /about, /blog/1, and refresh the page to verify routing works as expected.
+## 🔧 Usage
 
-Usage
-Navigation links use <a href="/path" data-link> attributes to prevent default reloads and enable SPA navigation.
+### 1. Define your routes
 
-The router listens to popstate events and URL changes to render the appropriate page.
+```js
+const routes = [
+  { path: '/', component: () => '<h1>Home</h1>' },
+  { path: '/about', component: () => '<h1>About</h1>' },
+  { path: '/user/:id', component: (params) => \`<h1>User ID: \${params.id}</h1>\` },
+  { path: '*', component: () => '<h1>404 - Not Found</h1>' },
+];
+```
 
-Dynamic routes are matched with regular expressions and parameters are extracted automatically.
+### 2. Initialize the Router
+
+```js
+const appRoot = document.getElementById('app');
+const router = new Router(routes, appRoot);
+```
+
+### 3. Navigate Programmatically
+
+```js
+router.to('/user/123');
+```
+
+### 4. Create Navigational Links
+
+```js
+const link = document.createElement('a');
+link.href = '/about';
+link.textContent = 'Go to About';
+link.addEventListener('click', (e) => {
+  e.preventDefault();
+  router.to('/about');
+});
+document.body.appendChild(link);
+```
+
+---
+
+## 🧠 API Reference
+
+### `new Router(routes, rootElement)`
+
+- `routes`: Array of route definitions  
+- `rootElement`: DOM element where components render  
+
+### Router Methods
+
+- `to(path, state?)`: Navigates to given route  
+- `onBeforeRoute`: Guard function to allow/block navigation  
+- `onRouteFail`: Callback when guard fails or error occurs  
+
+---
+
+## ✅ How to Run
+
+```bash
+npm install
+npm run dev
+```
+
+Or simply open `index.html` in your browser.
+
+---
+
+## 📄 License
+
+MIT © 2025 Samuel Bajracharya
+
+---
+
+## 📝 Contributing
+
+Pull requests and issues are welcome.
