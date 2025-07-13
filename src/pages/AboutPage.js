@@ -1,6 +1,6 @@
 const AboutPage = () => {
   return `
-    <div class="container" style="max-width: 800px; flex-direction: column; padding: 30px 20px;">
+    <div class="container" style="flex-direction: column; padding: 30px 20px;">
         <main style="flex: none;">
         <h2>About Me</h2>
         <p>Hello! I'm a passionate blogger and web developer. I love sharing insights, tutorials, and tips on web development, design, and technology.</p>

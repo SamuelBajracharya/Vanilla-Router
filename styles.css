@@ -120,3 +120,30 @@ footer {
     margin-top: 30px;
   }
 }
+
+.not-found {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  padding: 80px 20px;
+}
+
+.not-found h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: #cc0000;
+}
+
+.not-found p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.not-found a {
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+}
+.not-found a:hover {
+  text-decoration: underline;
+}

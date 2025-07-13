@@ -9,4 +9,5 @@ export const routes = {
   "/about": AboutPage,
   "/blogs": Blogs,
   "/blog": BlogPage,
+  
 };
